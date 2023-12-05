@@ -9,19 +9,19 @@ const Banner = () => {
   useEffect(() => {
     async function bannerData() {
       const res = await axios.get(request.fetchNetflixOrignals);
-      // console.log(res.data.results[0].id);
-      // setBannerTitle(res.data.results[0]);
-        setBannerTitle(
-          res.data.results[Math.floor(Math.random() * res.data.results.length)]
-        );
+      console.log(res.data.results[0].id);
+      setBannerTitle(res.data.results[0]);
+      setBannerTitle(
+        res.data.results[Math.floor(Math.random() * res.data.results.length)]
+      );
     }
     bannerData();
   }, []);
 
-  let value1=bannerTitle.overview;
-  const concatenatedStatement = value1.slice(0, 100) + "...";
-  console.log(value1);
-  console.log(concatenatedStatement);
+  // let value1 = bannerTitle.overview;
+  // const concatenatedStatement = value1.slice(0, 100) + "...";
+  // console.log(value1);
+  // console.log(concatenatedStatement);
 
   return (
     <header
@@ -44,7 +44,7 @@ const Banner = () => {
         </div>
         {}
         <p className="desc">{bannerTitle.overview}</p>
-    <p>more...</p>
+        <p>more...</p>
       </div>
       <div className="bannerBottom"></div>
     </header>
